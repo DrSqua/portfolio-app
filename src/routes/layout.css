@@ -1,2 +1,16 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
+
+@theme {
+    --color-primary: rgb(93, 202, 165);
+    --color-secondary: rgb(159, 225, 203);
+    --color-surface: rgb(28, 42, 37);
+    --color-background: rgb(20, 30, 26);
+    --color-surface-bright: rgb(36, 54, 47);
+    --color-surface-light: rgb(44, 66, 57);
+    --color-surface-variant: rgb(58, 85, 73);
+    --color-error: rgb(226, 75, 74);
+    --color-info: rgb(133, 183, 235);
+    --color-success: rgb(151, 196, 89);
+    --color-warning: rgb(250, 199, 117);
+}
