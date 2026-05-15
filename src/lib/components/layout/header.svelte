@@ -1,12 +1,8 @@
 <script lang="ts">
-	// We use Svelte 5 props to configure the layout behavior
-	// If true, the nav floats over the page. If false, it pushes content down.
 	let { isOverlay = false } = $props();
-
 	let mobileMenuOpen = $state(false);
 </script>
 
-<!-- NAVIGATION -->
 <nav class="w-full z-50 {isOverlay ? 'fixed top-0 left-0 bg-transparent' : 'relative bg-surface border-b border-surface-variant'}">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
@@ -34,10 +30,10 @@
 
 			<!-- Desktop Menu -->
 			<div class="hidden sm:flex flex-1 desktop-navbar">
+				<a href="/" class="nav-item" role="menuitem">Home</a>
 				<a href="/about" class="nav-item" role="menuitem">About</a>
 				<a href="/blog" class="nav-item" role="menuitem">Blog</a>
 				<a href="/projects" class="nav-item" role="menuitem">Projects</a>
-				<a href="/cv" class="nav-item" role="menuitem">C.V.</a>
 			</div>
 
 		</div>
@@ -51,7 +47,6 @@
 				<a href="/about" class="mobile-nav-item" role="menuitem">About</a>
 				<a href="/blog" class="mobile-nav-item" role="menuitem">Blog</a>
 				<a href="/projects" class="mobile-nav-item" role="menuitem">Projects</a>
-				<a href="/cv" class="mobile-nav-item" role="menuitem">C.V.</a>
 			</div>
 		</div>
 	{/if}
@@ -65,7 +60,7 @@
       @apply flex-row items-center justify-center gap-8;
 
       .nav-item {
-        @apply text-white font-medium tracking-wide transition-all duration-300;
+        @apply text-white text-xl tracking-wide transition-all duration-100;
 
         &:hover {
           @apply text-primary;
