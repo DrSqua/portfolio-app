@@ -340,7 +340,7 @@
 
 </script>
 
-<canvas bind:this={canvas} aria-hidden="true" />
+<canvas bind:this={canvas} aria-hidden="true"></canvas>
 
 <style>
     canvas {
