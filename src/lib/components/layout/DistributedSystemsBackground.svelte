@@ -335,6 +335,7 @@
 		animationId = requestAnimationFrame(draw);
 		return () => {
 			ro.disconnect();
+			cancelAnimationFrame(animationId);
 		};
 	});
 
