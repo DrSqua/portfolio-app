@@ -14,13 +14,9 @@ export const load: PageLoad = async ({ params }) => {
 	}
 
 	try {
-		// Load the compiled component
-		const post = await posts[targetPath]() as { default: any, metadata: any };
-
-		// Load the raw string
+		const post = await posts[targetPath]() as { default: never, metadata: never };
 		const rawPost = await rawPosts[targetPath]() as { default: string };
-
-		// 3. Calculate read time directly in the load function
+		
 		const rawContent = rawPost.default;
 		const wordCount = rawContent.replace(/<[^>]*>/g, '').trim().split(/\s+/).length;
 		const readTime = Math.max(1, Math.ceil(wordCount / 200));

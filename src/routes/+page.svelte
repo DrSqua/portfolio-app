@@ -7,7 +7,7 @@
 	const previewSectionOptions: string[] = ["blog", "projects", "academia", "about"]
 	let selectedPreview: string = $state("blog")
 
-	let { data }: { data } = $props();
+	let { data } = $props();
 
 	const topics = ["Web Development", "System Design", "Observability", "Homelab", "Learning a language"]
 	const selectedTopics: string[] = []
@@ -75,7 +75,7 @@
 
 	<nav class="flex justify-center">
 		<div class="flex gap-1 bg-white/[0.04] border border-white/10 rounded-full p-1">
-			{#each previewSectionOptions as previewSection}
+			{#each previewSectionOptions as previewSection (previewSection)}
 				<button
 					onclick={() => {selectedPreview = previewSection}}
 					class="nav-pill"
@@ -94,7 +94,7 @@
 						Topics
 					</p>
 					<ul class="flex flex-col gap-1 list-none p-0 m-0">
-						{#each topics as topic}
+						{#each topics as topic (topic)}
 							<li>
 								<button
 									onclick={() => selectedTopics.push(topic)}
@@ -108,7 +108,7 @@
 				</aside>
 
 				<div class="flex-grow grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-4 md:gap-6">
-					{#each highlightedProjects.slice(0, 3) as project}
+					{#each highlightedProjects.slice(0, 3) as project (project.name)}
 						<div class="bg-white border border-black/[0.06] rounded-2xl px-6 py-6 md:px-8 md:pt-8 md:pb-7 flex flex-col h-full transition-colors duration-200 hover:border-black/15 shadow-sm">
 
 							<div class="flex justify-between items-center mb-5">
@@ -125,7 +125,7 @@
 
 							<div class="flex items-center justify-between gap-4 mt-auto">
 								<div class="flex flex-wrap gap-1.5">
-									{#each project.stack as tech}
+									{#each project.stack as tech (tech)}
 								<span class="text-[10px] font-mono tracking-wider text-[#666] bg-black/[0.03] border border-black/[0.06] rounded-full px-2.5 py-1">
 									{tech}
 								</span>
@@ -190,7 +190,7 @@
 				<div>
 					<p class="text-[10px] font-mono tracking-[0.18em] uppercase mb-4 text-[#999]">publications / research projects</p>
 					<div class="flex flex-col gap-2.5">
-						{#each publications as pub}
+						{#each publications as pub (pub.title)}
 							<a href={pub.url} class="block bg-white rounded-xl px-4 py-3.5 no-underline border border-black/[0.06] transition-colors duration-200 hover:border-black/20">
 								<p class="text-[13px] font-semibold leading-snug mb-1 text-[#1a1a1a]">{pub.title}</p>
 								<p class="text-[10px] font-mono tracking-wide mb-0.5 text-[#5a9e8a]">{pub.type}</p>
