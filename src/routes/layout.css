@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
+@plugin "@tailwindcss/typography";
 
 @theme {
     --color-primary: rgb(93, 202, 165);

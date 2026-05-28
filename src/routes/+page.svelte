@@ -2,27 +2,20 @@
 	import DistributedSystemsBackground from '$lib/components/layout/DistributedSystemsBackground.svelte';
 	import Header from '$lib/components/layout/header.svelte';
 	import ProjectsSection from '$lib/components/layout/homepage/ProjectsSection.svelte';
+	import { prettyDateSpelled } from '$lib/style-utils';
 
 	const previewSectionOptions: string[] = ["blog", "projects", "academia", "about"]
 	let selectedPreview: string = $state("blog")
 
-	const recentBlogs = [
-		{
-			'name': "'What's the delay?' - Slow database queries, a rite of passage.",
-			"link": '/blog',
-			"date": "27/05/2026",
-			"readTime": 8,
-			"tags": ["Distributed Systems", "Database"],
-		}
-	]
+	let { data }: { data } = $props();
 
-	const topics = ["Website Design", "Observability", "Homelab", "Learning a language"]
+	const topics = ["Web Development", "System Design", "Observability", "Homelab", "Learning a language"]
 	const selectedTopics: string[] = []
 
 	const highlightedProjects = [
 			{
 				name: 'IngeniumUA Website',
-				tags: ['Website', 'Distributed System', 'System Design'],
+				tags: ['Web Development', 'System Design'],
 				description: "A student organisation's website.",
 				link: '/projects/ingenium-ua-website',
 				year: '2023-2026',
@@ -30,7 +23,7 @@
 			},
 			{
 				name: 'Boids in QuadTree',
-				tags: ['Rust', 'Simulation'],
+				tags: ['Learning a language'],
 				description: "Serving primarily as a learning project, i've implemented a boid simulation poweder by a quadtree implementation in rust.",
 				link: '/projects/rust-quadtree',
 				year: '2023',
@@ -38,7 +31,7 @@
 			},
 			{
 				name: 'This website',
-				tags: ['Website', 'Hosting'],
+				tags: ['Web Development'],
 				description: "A bit cliché, but this portfolion website is also one of the projects I've invested quite some time in.",
 				link: '/projects/portfolio-app',
 				year: '2024',
@@ -46,7 +39,6 @@
 			},
 	]
 
-	const researchInterests = ["Distributed Systems", "Machine Learning", "Causality"]
 	const publications = [
 		{
 			title: "Enhancing 5G Core Resilience with Distributed Tracing Techniques",
@@ -158,7 +150,7 @@
 		{:else if (selectedPreview === "blog")}
 			<p class="text-[11px] font-mono tracking-[0.2em] text-white/30 uppercase mb-8">Recent writing:</p>
 			<div class="flex flex-col md:flex-row gap-4">
-				{#each recentBlogs as blog (blog.name)}
+				{#each data.recentBlogs as blog (blog.name)}
 					<article class="max-w-sm bg-white/5 border border-white/10 rounded-2xl px-6 py-6 md:px-8 md:pt-8 md:pb-7">
 						<div class="flex justify-between items-center mb-5">
 							<p class="text-[10px] font-mono tracking-[0.12em] text-[#64d2b4]/70">
@@ -170,7 +162,7 @@
 						</a>
 						<div class="flex items-center justify-between gap-4 mt-4">
 							<p class="text-sm text-white/50 leading-relaxed">
-								{blog.date}
+								{prettyDateSpelled(blog.date)}
 							</p>
 							<p class="text-sm text-white/50 leading-relaxed">
 								{blog.readTime} min read
@@ -188,7 +180,12 @@
 			<p class="text-[11px] font-mono tracking-[0.2em] text-white/30 uppercase mb-8">Academic career:</p>
 			<div class="grid gap-8 md:gap-10 grid-cols-1 sm:grid-cols-[1fr_2fr]">
 				<div>
-					<p class="font-mono text-white max-w-sm">I'm currently working as a master's student in the Programmable Intelligent Networks group as a part of IDLab.</p>
+					<p class="font-mono text-white max-w-sm mb-4">I'm currently working as a master's student in the Programmable Intelligent Networks group as a part of <a href="https://www.uantwerpen.be/en/research-groups/idlab/">IDLab UAntwerp</a>.</p>
+
+					<p class="font-mono text-white/30 max-w-sm">My research interests are centered around distributed systems and orchestration.
+						I enjoy working with different statistical, causal and machine learning techniques (often all at once) to build new solutions.
+						</p>
+
 				</div>
 				<div>
 					<p class="text-[10px] font-mono tracking-[0.18em] uppercase mb-4 text-[#999]">publications / research projects</p>
