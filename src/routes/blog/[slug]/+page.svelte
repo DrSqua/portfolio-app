@@ -29,7 +29,7 @@
 			</p>
 
 			<p class="text-sm text-gray-500 leading-relaxed">
-				{data.readTime} min read
+				{data.meta.readTime} min read
 			</p>
 		</div>
 	</div>

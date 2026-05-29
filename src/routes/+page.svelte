@@ -150,7 +150,7 @@
 		{:else if (selectedPreview === "blog")}
 			<p class="text-[11px] font-mono tracking-[0.2em] text-white/30 uppercase mb-8">Recent writing:</p>
 			<div class="flex flex-col md:flex-row gap-4">
-				{#each data.recentBlogs as blog (blog.name)}
+				{#each data.recentBlogs as blog (blog.title)}
 					<article class="max-w-sm bg-white/5 border border-white/10 rounded-2xl px-6 py-6 md:px-8 md:pt-8 md:pb-7">
 						<div class="flex justify-between items-center mb-5">
 							<p class="text-[10px] font-mono tracking-[0.12em] text-[#64d2b4]/70">
@@ -158,13 +158,14 @@
 							</p>
 						</div>
 						<a href={blog.link} class="text-2xl font-extrabold text-white tracking-tight leading-none">
-							{blog.name}
+							{blog.title}
 						</a>
+						<p class="text-sm text-[#64d2b4]/70">{blog.preview_description}</p>
 						<div class="flex items-center justify-between gap-4 mt-4">
-							<p class="text-sm text-white/50 leading-relaxed">
+							<p class="text-sm text-white/50">
 								{prettyDateSpelled(blog.date)}
 							</p>
-							<p class="text-sm text-white/50 leading-relaxed">
+							<p class="text-sm text-white/50">
 								{blog.readTime} min read
 							</p>
 						</div>

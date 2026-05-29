@@ -423,7 +423,7 @@ However, once, when adding a user to a new group, we experienced a time out and 
 
 This is quite perculiar. Something we hadn't seen before. So I took a look at the keycloak container's logs.
 
-```yaml
+```log
 2025-11-03 14:35:28,256 WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (executor-thread-9) SQL Error: 0, SQLState: null
 2025-11-03 14:35:31,131 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (executor-thread-9) Acquisition timeout while waiting for new connection
 ```
